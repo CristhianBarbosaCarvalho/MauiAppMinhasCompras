@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="MauiAppMinhasCompras.Views.RelatorioCompras"
+             Title="Relatório de Compras">
+
+    
+    <ScrollView>
+
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Label Text="Período:" FontAttributes="Bold" />
+
+            <DatePicker x:Name="datePickerInicio" MaximumDate="{x:Static sys:DateTime.Now}" />
+            <DatePicker x:Name="datePickerFim" MaximumDate="{x:Static sys:DateTime.Now}" />
+
+            <Button Text="Filtrar" Clicked="OnFiltrarClicked" />
+
+            <CollectionView x:Name="collectionViewProdutos">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="5">
+                            <Label Text="{Binding Descricao}" />
+                            <Label Text="{Binding Preco, StringFormat='Preço: {0:C}'}" />
+                            <Label Text="{Binding Quantidade, StringFormat='Quantidade: {0}'}" />
+                            <Label Text="{Binding Total, StringFormat='Total: {0:C}'}" />
+                            <Label Text="{Binding DataCadastro, StringFormat='Data: {0:dd/MM/yyyy}'}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

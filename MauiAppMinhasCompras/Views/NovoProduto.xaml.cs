@@ -19,7 +19,8 @@ public partial class NovoProduto : ContentPage
             {
                 Descricao = txt_descricao.Text ?? string.Empty,
                 Quantidade = double.TryParse(txt_quantidade.Text, out var qtd) ? qtd : 0,
-                Preco = double.TryParse(txt_preco.Text, out var preco) ? preco : 0
+                Preco = double.TryParse(txt_preco.Text, out var preco) ? preco : 0,
+                DataCadastro = datePickerData.Date
             };
 
             // Salva no banco

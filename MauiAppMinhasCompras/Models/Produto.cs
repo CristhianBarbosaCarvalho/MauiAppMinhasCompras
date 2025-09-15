@@ -27,5 +27,7 @@ namespace MauiAppMinhasCompras.Models
         public double Preco { get; set; }
 
         public double Total => Quantidade * Preco;
+
+        public DateTime DataCadastro { get; set; } = DateTime.Now; // valor padrão para o momento do cadastro
     }
 }
